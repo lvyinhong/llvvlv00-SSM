@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.llvvlv00</groupId>
+    <artifactId>SSM</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mybatis_helloworld</module>
+        <module>mybatis_parameter</module>
+        <module>mybatis_resultmap</module>
+        <module>mybatis_dynamicSQL</module>
+        <module>mybatis_cache</module>
+        <module>mybatis_mbg</module>
+        <module>spring_helloworld</module>
+        <module>spring_ioc_annotation</module>
+        <module>spring_proxy</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+</project>

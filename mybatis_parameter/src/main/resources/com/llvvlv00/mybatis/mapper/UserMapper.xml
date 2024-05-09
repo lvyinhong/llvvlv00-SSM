@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE com.llvvlv00.mybatis.mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-com.llvvlv00.mybatis.mapper.dtd">
+<com.llvvlv00.mybatis.mapper namespace="com.llvvlv00.mybatis.com.llvvlv00.mybatis.mapper.UserMapper">
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(id) from User
+    </select>
+    <select id="getUserByIdToMap" resultType="java.util.Map">
+        select * from User where id = #{id}
+    </select>
+    <select id="getAllUserToMap" resultType="java.util.Map">
+        select * from User
+    </select>
+    <select id="getAllUserMap" resultType="java.util.Map">
+        select * from User
+    </select>
+</com.llvvlv00.mybatis.mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="userController" class="com.llvvlv00.spring.controller.com.llvvlv00.spring.controller.UserController" >-->
+<!--        <property name="userService" ref="userService"/>-->
+<!--    </bean>-->
+<!--    <bean id="userService" class="com.llvvlv00.spring.service.impl.UserServiceImpl">-->
+<!--        <property name="userDao" ref="userDao"/>-->
+<!--    </bean>-->
+<!--    <bean id="userDao" class="com.llvvlv00.spring.dao.impl.UserDaoImpl"/>-->
+    <!--
+        自动装配:
+        根据指定的策略，在IOC容器中匹配某个bean，自动为bean中的类类型属性或接口类型属性赋值
+        autowire="no|default|byName|byType|constructor"
+    -->
+    <bean class="com.llvvlv00.spring.controller.com.llvvlv00.spring.controller.UserController" autowire="byType"/>
+    <bean class="com.llvvlv00.spring.service.impl.UserServiceImpl" autowire="byType"/>
+    <bean class="com.llvvlv00.spring.dao.impl.UserDaoImpl"/>
+
+</beans>

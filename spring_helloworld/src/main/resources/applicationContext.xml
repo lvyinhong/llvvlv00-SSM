@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="helloWorld" class="com.llvvlv00.spring.pojo.HelloWorld" />
+    <bean id="studentOne" class="com.llvvlv00.spring.pojo.Student" />
+    <bean id="studentTwo" class="com.llvvlv00.spring.pojo.Student" />
+    <bean id="studentThree" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1001"/>
+        <property name="sname" value="张三"/>
+        <property name="age" value="23"/>
+        <property name="gender" value="男"/>
+    </bean>
+    <bean id="studentFour" class="com.llvvlv00.spring.pojo.Student">
+        <constructor-arg value="1002"/>
+        <constructor-arg value="李四"/>
+        <constructor-arg value="女"/>
+        <constructor-arg value="24"/>
+    </bean>
+
+    <bean id="studentFive" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname" value="王五"/>
+        <property name="gender"><null /></property>
+        <property name="age" value="23"/>
+    </bean>
+
+    <bean id="studentSix" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname" value="&lt;赵六&gt;"/>
+        <property name="gender"><null /></property>
+        <property name="age" value="23"/>
+    </bean>
+
+    <bean id="studentSenven" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname">
+            <value><![CDATA[<王五>]]></value>
+        </property>
+        <property name="gender"><null /></property>
+        <property name="age" value="23"/>
+    </bean>
+
+    <bean id="studentEight" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname" value="赵六"/>
+        <property name="gender" value="男"/>
+        <property name="age" value="23"/>
+        <property name="clazz" ref="clazzOne"/>
+    </bean>
+    <bean id="clazzOne" class="com.llvvlv00.spring.pojo.Clazz">
+        <property name="cid" value="10001"/>
+        <property name="clazzName" value="高三(2)班"/>
+        <property name="level" value="10"/>
+    </bean>
+
+    <bean id="studentNine" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname" value="赵六"/>
+        <property name="gender" value="男"/>
+        <property name="age" value="23"/>
+        <property name="hobby">
+            <list><null/></list>
+        </property>
+<!--        <property name="clazz.cid" value="10002"/>-->
+<!--        <property name="clazz.clazzName" value="高三(5)班"/>-->
+<!--        <property name="clazz.level" value="1000"/>-->
+    </bean>
+    <bean id="clazzTwo" class="com.llvvlv00.spring.pojo.Clazz">
+        <property name="cid" value="10001"/>
+        <property name="clazzName" value="高三(2)班"/>
+        <property name="level" value="10"/>
+    </bean>
+
+    <bean id="studentTen" class="com.llvvlv00.spring.pojo.Student">
+        <property name="sid" value="1003"/>
+        <property name="sname" value="赵六"/>
+        <property name="gender" value="男"/>
+        <property name="age" value="23"/>
+        <property name="score" value="98"/>
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="clazz">
+            <bean class="com.llvvlv00.spring.pojo.Clazz">
+                <property name="cid" value="222"/>
+                <property name="clazzName" value="高三(1)班"/>
+                <property name="level" value="97"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="clazzThree" class="com.llvvlv00.spring.pojo.Clazz">
+         <property name="cid" value="1111"/>
+        <property name="clazzName" value="高三(6)班"/>
+        <property name="students">
+            <list>
+                <ref bean="studentOne"/>
+                <ref bean="studentTwo"/>
+                <ref bean="studentThree"/>
+            </list>
+        </property>
+    </bean>
+
+    <util:list id="studentList">
+        <ref bean="studentOne" />
+        <ref bean="studentTwo" />
+        <ref bean="studentThree" />
+    </util:list>
+
+    <bean id="teacherOne" class="com.llvvlv00.spring.pojo.Teacher">
+        <property name="tid" value="1001"/>
+        <property name="tname" value="熊大"/>
+    </bean>
+
+    <bean id="teacherTwo" class="com.llvvlv00.spring.pojo.Teacher">
+        <property name="tid" value="1002"/>
+        <property name="tname" value="熊二"/>
+    </bean>
+    <util:map>
+        <entry key="语文" value-ref="teacherOne"/>
+        <entry key="数学" value-ref="teacherTwo"/>
+    </util:map>
+    <bean id="studentEleven" class="com.llvvlv00.spring.pojo.Student"
+          p:sid="1005" p:sname="xiaoming" p:teacherMap-ref="teacherMap">
+    </bean>
+</beans>

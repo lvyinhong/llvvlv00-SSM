@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE com.llvvlv00.mybatis.mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-com.llvvlv00.mybatis.mapper.dtd">
+<com.llvvlv00.mybatis.mapper namespace="com.llvvlv00.mybatis.com.llvvlv00.mybatis.mapper.SpecialSQLMapper">
+
+    <!-- select * from User where username like '%${mohu}%' -->
+<!-- select * from User where username like "%"#{mohu}"%" -->
+    <select id="getUserByLike" resultType="com.llvvlv00.mybatis.com.llvvlv00.mybatis.pojo.User">
+        select * from User where username like CONCAT('%',#{mohu},'%');
+    </select>
+    <select id="getUserList" resultType="com.llvvlv00.mybatis.com.llvvlv00.mybatis.pojo.User">
+        select * from ${tableName}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into User values(null, #{username}, #{password},#{age},#{gender},#{email})
+    </insert>
+
+    <!-- delete from User where id in(${ids}) -->
+    <delete id="deleteMoreUser">
+    </delete>
+
+</com.llvvlv00.mybatis.mapper>

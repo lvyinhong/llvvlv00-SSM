@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE com.llvvlv00.mybatis.mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-com.llvvlv00.mybatis.mapper.dtd">
+<com.llvvlv00.mybatis.mapper namespace="com.llvvlv00.mybatis.com.llvvlv00.mybatis.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into User values (null,'admin','123456',23,'男','12345@qq.com')
+    </insert>
+    <update id="updateUser">
+        update User set username='root', password='123' where id = 2;
+    </update>
+    <delete id="deleteUser">
+        delete from User where id = 3;
+    </delete>
+    <select id="selectById" resultType="com.llvvlv00.mybatis.com.llvvlv00.mybatis.pojo.User">
+        select * from User where id=4;
+    </select>
+    <select id="selectAll" resultType="com.llvvlv00.mybatis.com.llvvlv00.mybatis.pojo.User">
+        select * from User
+    </select>
+</com.llvvlv00.mybatis.mapper>
